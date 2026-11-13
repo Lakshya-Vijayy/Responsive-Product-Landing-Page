@@ -1,0 +1,143 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.hero-glow {
+  background:
+    radial-gradient(circle at 70% 30%, rgba(99, 102, 241, 0.35), transparent 55%),
+    #0b0b14;
+}
+
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(99, 102, 241, 0.25);
+}
+
+.product-slider {
+  width: 100%;
+  max-width: 620px;
+  margin: auto;
+  padding-bottom: 0;
+  position: relative;
+}
+
+.product-slider input {
+  position: absolute;
+  left: -9999px;
+}
+
+.product-images {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.product-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  object-fit: contain;
+  transform: scale(1.5);
+  display: none;
+}
+
+#slide1:checked ~ .product-images .slide-1 {
+  display: block;
+}
+
+#slide2:checked ~ .product-images .slide-2 {
+  display: block;
+}
+
+#slide3:checked ~ .product-images .slide-3 {
+  display: block;
+}
+
+#slide4:checked ~ .product-images .slide-4 {
+  display: block;
+}
+
+#slide5:checked ~ .product-images .slide-5 {
+  display: block;
+}
+
+.slider-dots {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.slider-dots label {
+  display: block;
+  width: 13px;
+  height: 13px;
+  min-width: 13px;
+  min-height: 13px;
+  border-radius: 50%;
+  background: #777;
+  cursor: pointer;
+  position: relative;
+  z-index: 21;
+}
+
+#slide1:checked ~ .slider-dots label[for="slide1"],
+#slide2:checked ~ .slider-dots label[for="slide2"],
+#slide3:checked ~ .slider-dots label[for="slide3"],
+#slide4:checked ~ .slider-dots label[for="slide4"],
+#slide5:checked ~ .slider-dots label[for="slide5"] {
+  background: #818cf8;
+  transform: scale(1.3);
+}
+
+@media (max-width: 768px) {
+  .product-slider {
+    max-width: 480px;
+  }
+
+  .product-images {
+    height: 380px;
+  }
+
+  .product-slide {
+    transform: scale(1.3);
+  }
+}
+
+@media (max-width: 640px) {
+  .product-slider {
+    max-width: 380px;
+  }
+
+  .product-images {
+    height: 330px;
+  }
+
+  .product-slide {
+    transform: scale(1.15);
+  }
+
+  .slider-dots {
+    gap: 12px;
+  }
+}
